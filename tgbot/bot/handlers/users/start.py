@@ -8,5 +8,4 @@ from tgbot.bot.loader import dp
 
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
-    await message.answer(f"Salom, {message.from_user.full_name}!")
-    
+    await message.answer(f'Hi {message.from_user.first_name}!\nI am latin to cyrillic bot!')
