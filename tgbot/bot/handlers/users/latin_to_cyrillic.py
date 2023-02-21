@@ -1,4 +1,5 @@
-from aiogram.types import Message, ParseMode
+from aiogram.types import Message, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
+
 from tgbot.bot.loader import dp
 
 
@@ -116,5 +117,21 @@ async def latin_to_cyrillic(message: Message):
 
     await message.answer(
         text=f'`{text}`',
-        parse_mode=ParseMode.MARKDOWN_V2
+        parse_mode=ParseMode.MARKDOWN_V2,
+        reply_markup=InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(
+                        text='To latin',
+                        callback_data='to-latin'
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        text='❌',
+                        callback_data='delete',
+                    )
+                ]
+            ]
+        )
     )
